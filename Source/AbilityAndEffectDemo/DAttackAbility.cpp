@@ -17,7 +17,7 @@ void UDAttackAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
 	FVector EndLocation = GetOwningActorFromActorInfo()->GetActorLocation() + (GetOwningActorFromActorInfo()->GetActorForwardVector() * 1000.0f);
 	GetWorld()->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation, ECC_Visibility);
 
-	DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Red, false, 15.0f);
+	DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Red, false, 5.0f);
 
 	// Applies the ticking damage effect to the actor hit
 	// @TODO Look at only applying the effect on the server
