@@ -4,6 +4,7 @@
 #include "DTestActor.h"
 
 #include "AbilitySystemComponent.h"
+#include "Components/TextRenderComponent.h"
 
 // Sets default values
 ADTestActor::ADTestActor()
@@ -14,8 +15,10 @@ ADTestActor::ADTestActor()
 
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>("StaticMeshComp");
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("AbilitySystemComp");
+	TextRenderComponent = CreateDefaultSubobject<UTextRenderComponent>("TextRenderComp");
 
 	RootComponent = StaticMeshComponent;
+	TextRenderComponent->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned

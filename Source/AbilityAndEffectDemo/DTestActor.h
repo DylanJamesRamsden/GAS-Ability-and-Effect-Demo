@@ -7,6 +7,8 @@
 #include "GameFramework/Actor.h"
 #include "DTestActor.generated.h"
 
+class UTextRenderComponent;
+
 UCLASS()
 class ABILITYANDEFFECTDEMO_API ADTestActor : public AActor, public IAbilitySystemInterface
 {
@@ -24,6 +26,10 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly)
 	UAbilitySystemComponent* AbilitySystemComponent;
+
+	// Just used to specify which is the instigator and which is the reciever
+	UPROPERTY(EditDefaultsOnly)
+	UTextRenderComponent* TextRenderComponent;
 	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
