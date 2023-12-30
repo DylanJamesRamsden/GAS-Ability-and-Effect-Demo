@@ -22,10 +22,10 @@ protected:
 	TSubclassOf<UGameplayAbility> AttackAbility;
 
 	FGameplayAbilitySpecHandle AttackAbilitySpecHandle;
+	
+	FTimerHandle AttackTimerHandle;
 
 	virtual void BeginPlay() override;
-
-	FTimerHandle AttackTimerHandle;
 
 	UFUNCTION()
 	void Attack();
