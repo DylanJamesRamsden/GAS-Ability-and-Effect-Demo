@@ -12,16 +12,27 @@ class ABILITYANDEFFECTDEMO_API ADTestActor : public AActor, public IAbilitySyste
 {
 	GENERATED_BODY()
 	
-public:	
+public:
+	
 	// Sets default values for this actor's properties
 	ADTestActor();
 
 protected:
+
+	UPROPERTY(EditDefaultsOnly)
+	UStaticMeshComponent* StaticMeshComponent;
+
+	UPROPERTY(EditDefaultsOnly)
+	UAbilitySystemComponent* AbilitySystemComponent;
+	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
+	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 };
