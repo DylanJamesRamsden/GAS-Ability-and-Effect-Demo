@@ -16,10 +16,12 @@ ADTestActor::ADTestActor()
 
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>("StaticMeshComp");
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("AbilitySystemComp");
-	TextRenderComponent = CreateDefaultSubobject<UTextRenderComponent>("TextRenderComp");
+	NameTextRenderComponent = CreateDefaultSubobject<UTextRenderComponent>("NameTextRenderComp");
+	ValueTextRenderComponent = CreateDefaultSubobject<UTextRenderComponent>("ValueTextRenderComp");
 
 	RootComponent = StaticMeshComponent;
-	TextRenderComponent->SetupAttachment(RootComponent);
+	NameTextRenderComponent->SetupAttachment(RootComponent);
+	ValueTextRenderComponent->SetupAttachment(RootComponent);
 
 	Attributes = CreateDefaultSubobject<UDAttributeSet>("Attributes");
 	AbilitySystemComponent->AddSpawnedAttribute(Attributes);

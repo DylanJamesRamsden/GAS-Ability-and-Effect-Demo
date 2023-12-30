@@ -29,8 +29,12 @@ protected:
 	UAbilitySystemComponent* AbilitySystemComponent;
 
 	// Just used to specify which is the instigator and which is the receiver
-	UPROPERTY(EditDefaultsOnly)
-	UTextRenderComponent* TextRenderComponent;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UTextRenderComponent* NameTextRenderComponent;
+
+	// Just used to specify which is the instigator and which is the receiver
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UTextRenderComponent* ValueTextRenderComponent;
 
 	UPROPERTY()
 	UDAttributeSet* Attributes;
