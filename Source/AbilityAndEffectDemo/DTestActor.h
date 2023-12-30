@@ -30,6 +30,9 @@ protected:
 	// Just used to specify which is the instigator and which is the receiver
 	UPROPERTY(EditDefaultsOnly)
 	UTextRenderComponent* TextRenderComponent;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	TSubclassOf<class UGameplayEffect> DefaultAttributeEffect;
 	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

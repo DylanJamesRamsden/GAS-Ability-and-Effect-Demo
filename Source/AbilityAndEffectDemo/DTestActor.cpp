@@ -25,7 +25,26 @@ ADTestActor::ADTestActor()
 void ADTestActor::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	// Default attributes gets applied on both Authority and Clients
+	if (AbilitySystemComponent && DefaultAttributeEffect)
+	{
+		FGameplayEffectContextHandle GameplayEffectContextHandle = AbilitySystemComponent->MakeEffectContext();
+		GameplayEffectContextHandle.AddSourceObject(this);
+		const FGameplayEffectSpecHandle GameplayEffectSpecHandle = AbilitySystemComponent->MakeOutgoingSpec(DefaultAttributeEffect, 1, GameplayEffectContextHandle);
+
+		if (GameplayEffectSpecHandle.IsValid())
+		{
+			FActiveGameplayEffectHandle ActiveGameplayEffect = AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*GameplayEffectSpecHandle.Data.Get());
+
+			if (ActiveGameplayEffect.IsValid())
+			{
+				UE_LOG(LogTemp, Log, TEXT("Default attributes applied to %s"), *GetName());
+			}
+			else UE_LOG(LogTemp, Error, TEXT("Could not apply default attributes to %s"), *GetName());
+		}	
+	}
+	else UE_LOG(LogTemp, Error, TEXT("Could not apply default attributes to %s, please check you have assigned a DefaultAttributeEffect!"), *GetName());
 }
 
 UAbilitySystemComponent* ADTestActor::GetAbilitySystemComponent() const
