@@ -25,6 +25,8 @@ ADTestActor::ADTestActor()
 
 	Attributes = CreateDefaultSubobject<UDAttributeSet>("Attributes");
 	AbilitySystemComponent->AddSpawnedAttribute(Attributes);
+	// For testing purposes I am not going to mess with the replication mode of the AbilitySystemComp,
+	// don't think its required for whats expected
 }
 
 // Called when the game starts or when spawned

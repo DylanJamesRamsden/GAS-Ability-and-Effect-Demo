@@ -32,7 +32,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	UTextRenderComponent* NameTextRenderComponent;
 
-	// Just used to specify which is the instigator and which is the receiver
+	// Just used to visualize the Health
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	UTextRenderComponent* ValueTextRenderComponent;
 
