@@ -27,7 +27,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	UAbilitySystemComponent* AbilitySystemComponent;
 
-	// Just used to specify which is the instigator and which is the reciever
+	// Just used to specify which is the instigator and which is the receiver
 	UPROPERTY(EditDefaultsOnly)
 	UTextRenderComponent* TextRenderComponent;
 	
