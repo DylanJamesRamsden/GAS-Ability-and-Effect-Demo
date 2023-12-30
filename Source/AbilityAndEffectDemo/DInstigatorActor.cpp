@@ -16,7 +16,6 @@ void ADInstigatorActor::BeginPlay()
 			AttackAbilitySpecHandle = AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(AttackAbility, 1, 0));
 			if (AttackAbilitySpecHandle.IsValid())
 			{
-				Attack();
 				GetWorldTimerManager().SetTimer(AttackTimerHandle, this, &ADInstigatorActor::Attack, 10.0f, true);
 				
 				UE_LOG(LogTemp, Log, TEXT("Attack ability given to %s"), *GetName());
@@ -29,6 +28,5 @@ void ADInstigatorActor::BeginPlay()
 
 void ADInstigatorActor::Attack()
 {
-	// @TODO RemoteLocalActivation
 	bool bActivatedAttack = AbilitySystemComponent->TryActivateAbility(AttackAbilitySpecHandle); 
 }
