@@ -7,6 +7,7 @@
 #include "GameFramework/Actor.h"
 #include "DTestActor.generated.h"
 
+class UDAttributeSet;
 class UTextRenderComponent;
 
 UCLASS()
@@ -24,12 +25,15 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	UStaticMeshComponent* StaticMeshComponent;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	UAbilitySystemComponent* AbilitySystemComponent;
 
 	// Just used to specify which is the instigator and which is the receiver
 	UPROPERTY(EditDefaultsOnly)
 	UTextRenderComponent* TextRenderComponent;
+
+	UPROPERTY()
+	UDAttributeSet* Attributes;
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	TSubclassOf<class UGameplayEffect> DefaultAttributeEffect;

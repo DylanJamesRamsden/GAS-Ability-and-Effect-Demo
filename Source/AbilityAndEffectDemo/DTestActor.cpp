@@ -4,6 +4,7 @@
 #include "DTestActor.h"
 
 #include "AbilitySystemComponent.h"
+#include "DAttributeSet.h"
 #include "Components/TextRenderComponent.h"
 
 // Sets default values
@@ -19,6 +20,9 @@ ADTestActor::ADTestActor()
 
 	RootComponent = StaticMeshComponent;
 	TextRenderComponent->SetupAttachment(RootComponent);
+
+	Attributes = CreateDefaultSubobject<UDAttributeSet>("Attributes");
+	AbilitySystemComponent->AddSpawnedAttribute(Attributes);
 }
 
 // Called when the game starts or when spawned
@@ -37,7 +41,7 @@ void ADTestActor::BeginPlay()
 		{
 			FActiveGameplayEffectHandle ActiveGameplayEffect = AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*GameplayEffectSpecHandle.Data.Get());
 
-			if (ActiveGameplayEffect.IsValid())
+			if (ActiveGameplayEffect.WasSuccessfullyApplied())
 			{
 				UE_LOG(LogTemp, Log, TEXT("Default attributes applied to %s"), *GetName());
 			}
