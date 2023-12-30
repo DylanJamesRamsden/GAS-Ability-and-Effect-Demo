@@ -10,7 +10,7 @@
 ADTestActor::ADTestActor()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 	bReplicates = true;
 
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>("StaticMeshComp");
@@ -26,13 +26,6 @@ void ADTestActor::BeginPlay()
 {
 	Super::BeginPlay();
 	
-}
-
-// Called every frame
-void ADTestActor::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
 UAbilitySystemComponent* ADTestActor::GetAbilitySystemComponent() const
