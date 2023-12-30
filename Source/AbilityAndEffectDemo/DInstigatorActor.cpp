@@ -13,13 +13,22 @@ void ADInstigatorActor::BeginPlay()
 	{
 		if (AttackAbility)
 		{
-			FGameplayAbilitySpecHandle GameplayAbilitySpecHandle = AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(AttackAbility, 1, 0));
-			if (GameplayAbilitySpecHandle.IsValid())
+			AttackAbilitySpecHandle = AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(AttackAbility, 1, 0));
+			if (AttackAbilitySpecHandle.IsValid())
 			{
+				Attack();
+				GetWorldTimerManager().SetTimer(AttackTimerHandle, this, &ADInstigatorActor::Attack, 10.0f, true);
+				
 				UE_LOG(LogTemp, Log, TEXT("Attack ability given to %s"), *GetName());
 			}
 			else UE_LOG(LogTemp, Log, TEXT("Could not give AttackAbility to %s"), *GetName());
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Could not give AttackAbility to %s, please check you have assigned a AttackAbility!"), *GetName());
 	}
+}
+
+void ADInstigatorActor::Attack()
+{
+	// @TODO RemoteLocalActivation
+	bool bActivatedAttack = AbilitySystemComponent->TryActivateAbility(AttackAbilitySpecHandle); 
 }

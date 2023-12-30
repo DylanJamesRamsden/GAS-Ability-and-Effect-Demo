@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "DTestActor.h"
+#include "GameplayAbilitySpecHandle.h"
 #include "DInstigatorActor.generated.h"
 
 class UGameplayAbility;
@@ -20,6 +21,13 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<UGameplayAbility> AttackAbility;
 
+	FGameplayAbilitySpecHandle AttackAbilitySpecHandle;
+
 	virtual void BeginPlay() override;
+
+	FTimerHandle AttackTimerHandle;
+
+	UFUNCTION()
+	void Attack();
 	
 };
