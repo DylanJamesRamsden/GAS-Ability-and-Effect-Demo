@@ -21,6 +21,10 @@ class ABILITYANDEFFECTDEMO_API UDAttributeSet : public UAttributeSet
 {
 	GENERATED_BODY()
 
+public:
+
+	UDAttributeSet();
+
 	UPROPERTY(BlueprintReadOnly, Category = "Attributes")
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UDAttributeSet, Health);

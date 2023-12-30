@@ -3,3 +3,6 @@
 
 #include "DAttributeSet.h"
 
+UDAttributeSet::UDAttributeSet()
+{
+}
