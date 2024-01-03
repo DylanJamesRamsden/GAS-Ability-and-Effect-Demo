@@ -20,7 +20,6 @@ void UDAttackAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
 	DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Red, false, 5.0f);
 
 	// Applies the ticking damage effect to the actor hit
-	// @TODO Look at only applying the effect on the server
 	if (HitResult.GetActor())
 	{
 		if (ADTestActor* HitActor = Cast<ADTestActor>(HitResult.GetActor()))
